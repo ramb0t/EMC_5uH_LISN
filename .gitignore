@@ -1,0 +1,5 @@
+# KiCad local state
+.history/
+*.lck
+*-backups/
+fp-info-cache
