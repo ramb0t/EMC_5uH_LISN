@@ -7,7 +7,7 @@ jlcpcb/out/:
   jlc_cpl.csv     placement of those parts
   hand_bom.csv    parts soldered by hand (assembly = hand)
   order_bom.csv   the same parts for a distributor BOM import, for 1 and 10 LISNs
-  gerbers.zip     the upstream Gerber/drill files, zipped for upload
+  gerbers.zip     the Gerber/drill files from Gerber_V1R1/, zipped for upload
 
 Every reference in the schematic and on the PCB must appear exactly once in
 parts.csv, otherwise nothing is written. Output is deterministic.
@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SCH = ROOT / "5uH_LISN.kicad_sch"
 PCB = ROOT / "5uH_LISN.kicad_pcb"
-GERBER_DIR = ROOT / "Gerber_IPC356_BOM_camset"
+GERBER_DIR = ROOT / "Gerber_V1R1"  # plotted by jlcpcb/plot_gerbers.sh
 PARTS = Path(__file__).resolve().parent / "parts.csv"
 OUT = Path(__file__).resolve().parent / "out"
 

@@ -1,15 +1,17 @@
 # Ordering the 5µH LISN at JLCPCB
 
-This folder makes the V1 R0 design orderable at JLCPCB (PCB + SMD assembly)
-without touching any of the original design files. Everything here is
-generated from the unmodified `5uH_LISN.kicad_sch`, `5uH_LISN.kicad_pcb` and
-`Gerber_IPC356_BOM_camset/`.
+This folder makes the V1 R1 design (KiCad 10) orderable at JLCPCB (PCB + SMD
+assembly). Everything here is generated from `5uH_LISN.kicad_sch`,
+`5uH_LISN.kicad_pcb` and the Gerbers plotted into `Gerber_V1R1/`. The upstream
+V1 R0 Gerbers stay in `Gerber_IPC356_BOM_camset/` for reference: copper, mask,
+paste, outline and drills match them; only the silkscreen differs.
 
 | File | Use |
 |---|---|
 | `parts.csv` | Single source: every reference, who fits it (`jlc`, `hand`, `dnp`), LCSC number, MPN, original MPN, notes |
 | `generate.py` | Builds `out/` from the KiCad files and `parts.csv` (Python 3, standard library only) |
-| `out/gerbers.zip` | Upstream Gerber and drill files, zipped for upload |
+| `plot_gerbers.sh` | Plots the Gerber and drill files from the KiCad 10 board into `Gerber_V1R1/` |
+| `out/gerbers.zip` | `Gerber_V1R1/` zipped for upload |
 | `out/jlc_bom.csv` | BOM for JLCPCB assembly (`jlc` parts only) |
 | `out/jlc_cpl.csv` | Placement file for those parts |
 | `out/hand_bom.csv` | Parts you solder yourself |
@@ -92,6 +94,7 @@ JLCPCB before ordering.
 ## Regenerating
 
 ```bash
+sh jlcpcb/plot_gerbers.sh           # after any board change: Gerbers + drill files
 python3 jlcpcb/generate.py          # writes out/
 python3 jlcpcb/generate.py --check  # exit 1 if out/ is stale
 ```
