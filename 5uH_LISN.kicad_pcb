@@ -12011,7 +12011,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "562R"
+		(property "Value" "560R"
 			(at 0 -1.65 90)
 			(layer "B.Fab")
 			(uuid "f5df4eee-234b-42af-bb8f-75b61d609516")
@@ -12239,7 +12239,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "562R"
+		(property "Value" "560R"
 			(at 0 -1.65 90)
 			(layer "B.Fab")
 			(uuid "ce85e5f0-bcf6-47c2-9223-5c3ee4eea7a9")

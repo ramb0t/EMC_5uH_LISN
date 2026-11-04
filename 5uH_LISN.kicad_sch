@@ -7195,7 +7195,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "562R"
+		(property "Value" "560R"
 			(at 301.498 107.95 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12206,7 +12206,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "562R"
+		(property "Value" "560R"
 			(at 301.498 218.44 0)
 			(show_name no)
 			(do_not_autoplace no)

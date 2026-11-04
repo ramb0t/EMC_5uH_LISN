@@ -86,6 +86,8 @@ JLCPCB before ordering.
   supply capacitor, no DC current.
 - **C1/C2:** standard 22 µF 100 V X7R 2220 instead of the stacked TDK CKG57N.
 - **C15/C16:** Murata instead of TDK, same rating.
+- **R29/R30: 560R instead of 562R**, a JLCPCB basic part (no extended-part fee).
+  −0.4 %, inside the 1 % tolerance of the other attenuator resistors.
 
 ## Regenerating
 
