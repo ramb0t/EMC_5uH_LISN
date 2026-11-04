@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate JLCPCB assembly files from the unmodified KiCad project.
+"""Generate JLCPCB assembly files from the KiCad project (KiCad 7 or 8+ format).
 
 Reads 5uH_LISN.kicad_sch, 5uH_LISN.kicad_pcb and jlcpcb/parts.csv and writes
 jlcpcb/out/:
@@ -49,16 +49,24 @@ def natural_key(ref):
 
 
 def read_schematic(path):
-    """Return {ref: (value, footprint)} from the symbol_instances section."""
+    """Return {ref: (value, footprint)} from the placed symbols.
+
+    Handles KiCad 7 (two-space indent) and KiCad 8+ (tab indent, no
+    symbol_instances section). Library symbols are nested deeper and carry a
+    quoted name instead of lib_id, so they are not matched.
+    """
     text = path.read_text(encoding="utf-8")
-    start = text.find("(symbol_instances")
-    if start < 0:
-        sys.exit(f"{path.name}: no symbol_instances section")
     refs = {}
-    pattern = r'\(reference "([^"]+)"\) \(unit \d+\) \(value "([^"]*)"\) \(footprint "([^"]*)"\)'
-    for ref, value, footprint in re.findall(pattern, text[start:]):
-        if not ref.startswith("#"):
-            refs[ref] = (value, footprint)
+    for block in re.split(r"\n(?:\t| {2})\(symbol\s+\((?:lib_name|lib_id) ", text)[1:]:
+        ref = search(r'\(property "Reference" "([^"]+)"', block, "symbol reference").group(1)
+        if ref.startswith("#"):
+            continue
+        value = search(r'\(property "Value" "([^"]*)"', block, f"{ref} value").group(1)
+        value = value or "~"  # KiCad 8+ writes an empty value as "", KiCad 7 as "~"
+        footprint = search(r'\(property "Footprint" "([^"]*)"', block, f"{ref} footprint").group(1)
+        refs[ref] = (value, footprint)
+    if not refs:
+        sys.exit(f"{path.name}: no placed symbols found")
     return refs
 
 
@@ -66,8 +74,10 @@ def read_pcb(path):
     """Return {ref: dict(layer, x, y, rot, attrs, footprint)}."""
     text = path.read_text(encoding="utf-8")
     fps = {}
-    for block in re.split(r"\n  \(footprint ", text)[1:]:
-        ref = search(r'\(fp_text reference "([^"]+)"', block, "footprint reference").group(1)
+    # KiCad 7: two-space indent, fp_text reference; KiCad 8+: tab indent, property "Reference"
+    for block in re.split(r"\n(?:\t| {2})\(footprint ", text)[1:]:
+        ref = search(r'\((?:fp_text reference|property "Reference") "([^"]+)"', block,
+                     "footprint reference").group(1)
         at = search(r"\(at ([-\d.]+) ([-\d.]+)(?: ([-\d.]+))?\)", block, f"{ref} position")
         attr = re.search(r"\(attr ([^)]*)\)", block)
         fps[ref] = {
@@ -208,6 +218,18 @@ def build_gerber_zip():
     return buf.getvalue()
 
 
+def zip_members(data):
+    with zipfile.ZipFile(io.BytesIO(data)) as z:
+        return {i.filename: z.read(i) for i in z.infolist()}
+
+
+def same(name, old, new):
+    """Compare zips by member contents: zlib output differs between builds."""
+    if name.endswith(".zip"):
+        return zip_members(old) == zip_members(new)
+    return old == new
+
+
 def main(argv):
     check = "--check" in argv
     sch, pcb, parts = read_schematic(SCH), read_pcb(PCB), read_parts(PARTS)
@@ -224,7 +246,7 @@ def main(argv):
         "gerbers.zip": build_gerber_zip(),
     }
     if check:
-        stale = [n for n, data in outputs.items() if not (OUT / n).exists() or (OUT / n).read_bytes() != data]
+        stale = [n for n, data in outputs.items() if not (OUT / n).exists() or not same(n, (OUT / n).read_bytes(), data)]
         if stale:
             print("stale: " + ", ".join(stale) + " (run jlcpcb/generate.py)", file=sys.stderr)
             return 1
