@@ -13,4 +13,9 @@
     (solder_mask_margin 0.1016))
   (pad P$2 smd rect (at 0 1.143) (size 2.54 1.016) (layers F.Cu F.Paste F.Mask)
     (solder_mask_margin 0.1016))
+  (model "${KIPRJMOD}/3dmodels/L_Coilcraft_1008PS.step"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )

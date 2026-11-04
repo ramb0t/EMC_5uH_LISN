@@ -11,4 +11,9 @@
   (fp_line (start -3.048 2.032) (end 3.048 2.032) (layer F.CrtYd) (width 0.05))
   (pad 2 smd rect (at 2.425 0) (size 1.05 3.6) (layers F.Cu F.Paste F.Mask))
   (pad 1 smd rect (at -2.425 0) (size 1.05 3.6) (layers F.Cu F.Paste F.Mask))
+  (model "${KIPRJMOD}/3dmodels/GDT_TDK_S30-A_1812.step"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )

@@ -409,7 +409,7 @@
 			(uuid "47efc9ec-f9ef-4a8e-8577-ae44f51d2108")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Connector_Coaxial.3dshapes/SMA_Wurth_60312002114503_Vertical.wrl"
+		(model "${KIPRJMOD}/3dmodels/SMA_TE_5-1814832-2_Vertical.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -699,7 +699,7 @@
 			(uuid "abca780f-d7cc-42e0-8542-790b45f9a2f3")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Connector_Coaxial.3dshapes/SMA_Wurth_60312002114503_Vertical.wrl"
+		(model "${KIPRJMOD}/3dmodels/SMA_TE_5-1814832-2_Vertical.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -814,6 +814,17 @@
 			(uuid "3172e57c-5891-4cd4-86f3-fade301f2271")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:4,1-PAD"
 		(layer "F.Cu")
@@ -1554,6 +1565,17 @@
 			(uuid "c324e9d3-77e7-4dc2-a716-d89eec2e2754")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:BANANA_CONN"
 		(locked yes)
@@ -1658,6 +1680,17 @@
 			(uuid "c055bcf7-ab97-41b9-b172-4fe2ce4dc28a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:BANANA_CONN"
 		(locked yes)
@@ -1762,6 +1795,17 @@
 			(uuid "0c68805a-52df-4e2f-979f-feaa1af6038f")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:BANANA_CONN"
 		(locked yes)
@@ -1866,6 +1910,17 @@
 			(uuid "f1b0a3f3-0c4c-412c-b232-c719e7f37ab9")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:BANANA_CONN"
 		(locked yes)
@@ -1970,6 +2025,17 @@
 			(uuid "1bc8a585-6f11-4d20-933b-242451092ae1")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_2220_5650Metric"
 		(locked yes)
@@ -2185,7 +2251,7 @@
 			(uuid "9ccdfbd5-27c3-4b9e-a42f-c1a5d9a5790c")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_2220_5650Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_2220_5750Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -2411,7 +2477,7 @@
 			(uuid "7e182b5c-bca8-48e8-9445-ca66a827ea1b")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_2220_5650Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_2220_5750Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3489,7 +3555,7 @@
 			(uuid "981e4be3-3086-415e-a4ee-9bb28bdd7f1f")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Diodes_SMD.3dshapes/D_SOT-23.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3666,7 +3732,7 @@
 			(uuid "817089b3-5c0d-4b8a-a287-9be864f04c13")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Diodes_SMD.3dshapes/D_SOT-23.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3843,7 +3909,7 @@
 			(uuid "3f4843c5-6137-4d26-b5f4-0b8fb9c0ae6c")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Diodes_SMD.3dshapes/D_SOT-23.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -4020,7 +4086,7 @@
 			(uuid "e2034a85-ec63-4816-93c6-75dcfd10a520")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Diodes_SMD.3dshapes/D_SOT-23.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -4175,6 +4241,17 @@
 			(uuid "f4270a44-87d0-4173-bdf5-5870230aa10d")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/L_Coilcraft_1008PS.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0805_2012Metric"
 		(locked yes)
@@ -12965,6 +13042,17 @@
 			(uuid "89c38918-ddb9-4ff7-b030-c879a051e508")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/GDT_TDK_S30-A_1812.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:S30-A400X"
 		(layer "B.Cu")
@@ -13103,6 +13191,17 @@
 			(uuid "1096ced4-ec8e-45f9-af68-16e38d51132c")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/GDT_TDK_S30-A_1812.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -13308,6 +13407,17 @@
 			(uuid "e6658e2d-6040-4668-9189-1111f8fdf417")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -13513,6 +13623,17 @@
 			(uuid "ae6731dc-168e-4953-9492-9a839fbde127")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -13718,6 +13839,17 @@
 			(uuid "79aa61b0-3913-4dd5-85ac-a55bcc701429")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -13923,6 +14055,17 @@
 			(uuid "cb82d996-e8e4-423d-8035-5a7e84b36965")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -14128,6 +14271,17 @@
 			(uuid "5fda6174-0309-43f7-9693-355c116e43b1")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:COILCRAFT_1008PS"
 		(layer "B.Cu")
@@ -14271,6 +14425,17 @@
 			(uuid "e42e3fde-c7e6-49cb-9f4b-fdd477c1dab7")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/L_Coilcraft_1008PS.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -14476,6 +14641,17 @@
 			(uuid "6a49dfb4-e04e-49cb-86ba-cdbebee77179")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -14681,6 +14857,17 @@
 			(uuid "09aefc4d-f2b6-4f20-a989-e2b14b56879f")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -14886,6 +15073,17 @@
 			(uuid "cb0886b1-6c83-43f4-9af8-5be792f2a290")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -15091,6 +15289,17 @@
 			(uuid "9b19fc39-4647-4574-8433-75d0ac16c677")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "5uH_LISN:WE-HCI_7030_7040_7050"
 		(layer "B.Cu")
@@ -15296,6 +15505,17 @@
 			(uuid "b326a598-e01f-4d92-85c8-d715b5b56e55")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_HCI-7050.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(gr_line
 		(start 101.9 84.862)

@@ -8,4 +8,9 @@
   (fp_circle (center 0 0) (end 2.8398 0) (layer F.SilkS) (width 0.127))
   (pad P$1 thru_hole circle (at 0 0) (size 10 10) (drill 5.2) (layers *.Cu *.Mask)
     (solder_mask_margin 0.1016))
+  (model "${KIPRJMOD}/3dmodels/Banana_Keystone_575-8.step"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )
