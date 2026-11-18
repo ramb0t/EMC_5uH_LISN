@@ -3,3 +3,6 @@
 *.lck
 *-backups/
 fp-info-cache
+
+# Python
+__pycache__/
