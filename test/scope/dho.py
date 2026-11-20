@@ -37,11 +37,13 @@ class DHO:
         self.w(f":ACQ:MDEP {mdep}")
         self.w(":SING")
         time.sleep(0.5)
-        for _ in range(100):
+        for i in range(100):
             if self.q(":TRIG:STAT?") == "STOP":
                 return
+            if i == 30:  # a signal too small to cross the trigger level: force it
+                self.w(":TFOR")
             time.sleep(0.1)
-        raise SystemExit("no trigger in 10 s; check the trigger source and level")
+        raise SystemExit("no trigger in 10 s, even when forced")
 
     def read(self, chan):
         self.w(f":WAV:SOUR CHAN{chan}")
