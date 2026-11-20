@@ -47,15 +47,22 @@ class DHO:
         self.w(f":WAV:SOUR CHAN{chan}")
         self.w(":WAV:MODE RAW")
         self.w(":WAV:FORM WORD")
-        self.w(f":WAV:POIN {int(float(self.q(':ACQ:MDEP?')))}")  # RAW otherwise returns only 250k
+        # the preamble's point count follows the last STAR/STOP window, which persists between
+        # clients, so set the full window first and take the count from the memory depth
+        n = int(float(self.q(":ACQ:MDEP?")))
+        self.w(f":WAV:POIN {n}")
+        self.w(":WAV:STAR 1")
+        self.w(f":WAV:STOP {n}")
         pre = [float(x) for x in self.q(":WAV:PRE?").split(",")]
-        n, xinc, xorig, yinc, yorig, yref = int(pre[2]), pre[4], pre[5], pre[7], pre[8], pre[9]
+        xinc, xorig, yinc, yorig, yref = pre[4], pre[5], pre[7], pre[8], pre[9]
         raw = []
         for a in range(1, n + 1, CHUNK):
             self.w(f":WAV:STAR {a}")
             self.w(f":WAV:STOP {min(a + CHUNK - 1, n)}")
             raw.append(np.array(self.s.query_binary_values(":WAV:DATA?", datatype="H", container=np.array)))
         d = np.concatenate(raw).astype(float)
+        if len(d) != n:
+            raise SystemExit(f"CH{chan}: read {len(d)} of {n} points")
         clip = max(np.mean(d == d.max()), np.mean(d == d.min()))
         if clip > 1e-3:
             print(f"WARNING CH{chan}: {clip:.1%} of samples at the ADC limit -- clipped, change scale or offset")
