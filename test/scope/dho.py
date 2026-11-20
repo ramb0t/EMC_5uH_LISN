@@ -32,6 +32,7 @@ class DHO:
 
     def single(self, timebase, mdep):
         self.w(":RUN")
+        self.w(":CHAN1:DISP 1")  # with CH1 off, RAW reads of other channels return junk (fw 00.01.05)
         self.w(f":TIM:SCAL {timebase:g}")
         self.w(f":ACQ:MDEP {mdep}")
         self.w(":SING")
@@ -60,6 +61,15 @@ class DHO:
             print(f"WARNING CH{chan}: {clip:.1%} of samples at the ADC limit -- clipped, change scale or offset")
         v = (d - yref - yorig) * yinc
         t = xorig + np.arange(len(v)) * xinc
+        # cross-check against the screen record, which the scope always gets right
+        self.w(":WAV:MODE NORM")
+        pre = [float(x) for x in self.q(":WAV:PRE?").split(",")]
+        s = np.array(self.s.query_binary_values(":WAV:DATA?", datatype="H", container=np.array), float)
+        s = (s - pre[9] - pre[8]) * pre[7]
+        # the screen record is a min/max envelope at long timebases, so compare peak-to-peak, not RMS
+        err = 20 * np.log10(max(np.ptp(v), 1e-9) / max(np.ptp(s), 1e-9))
+        if abs(err) > 3:
+            raise SystemExit(f"CH{chan}: RAW record pk-pk is {err:+.1f} dB off the screen record; data not trusted")
         return t, v
 
 
