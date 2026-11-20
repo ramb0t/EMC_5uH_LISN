@@ -73,9 +73,11 @@ class DHO:
         pre = [float(x) for x in self.q(":WAV:PRE?").split(",")]
         s = np.array(self.s.query_binary_values(":WAV:DATA?", datatype="H", container=np.array), float)
         s = (s - pre[9] - pre[8]) * pre[7]
-        # the screen record is a min/max envelope at long timebases, so compare peak-to-peak, not RMS
-        err = 20 * np.log10(max(np.ptp(v), 1e-9) / max(np.ptp(s), 1e-9))
-        if abs(err) > 3:
+        # compare only the span on screen; the screen record is a min/max envelope at long
+        # timebases, so use pk-pk, not RMS. The failure this catches reads 20 dB or more off.
+        on = (t >= pre[5]) & (t <= pre[5] + len(s) * pre[4])
+        err = 20 * np.log10(max(np.ptp(v[on]), 1e-9) / max(np.ptp(s), 1e-9))
+        if abs(err) > 6:
             raise SystemExit(f"CH{chan}: RAW record pk-pk is {err:+.1f} dB off the screen record; data not trusted")
         return t, v
 
