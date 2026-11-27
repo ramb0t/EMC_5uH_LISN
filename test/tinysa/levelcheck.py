@@ -21,9 +21,7 @@ H = np.arange(2, 31) * 1e6
 
 def capture(name):
     t = tsa.TinySA(tsa.find_port())
-    t.cmd(f"rbw {tsa.RBW_KHZ}")
-    t.cmd("attenuate 10")
-    t.cmd("spur auto")
+    t.configure(tsa.RBW_KHZ, "10", "off")  # also zeroes external gain, which cannot be read back
     t.cmd("caloutput 1")
     peaks = []
     for h in H:

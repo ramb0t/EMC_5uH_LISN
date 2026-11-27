@@ -16,7 +16,11 @@ Below 2 MHz the 5 µH LISN reads low against the 50 µH V-AN the limits assume, 
 
 ## Running a sweep
 
-`python3 tsa.py NAME --line plus|minus` sweeps 150 kHz–30 MHz at 10 kHz RBW in 5 kHz steps, takes a max hold of 3 sweeps (`--sweeps`), adds that line's VDF from `../vna`, and writes `data/NAME.csv` and `.png`. `--line none` gives the raw reading, for the instrument floor. The script sets RBW, 10 dB attenuation (`--atten`) and spur removal, but saves nothing to the tinySA.
+`python3 tsa.py NAME --line plus|minus` sweeps 150 kHz–30 MHz at 10 kHz RBW in 5 kHz steps, takes a max hold of 3 sweeps (`--sweeps`), adds that line's VDF from `../vna`, and writes `data/NAME.csv` and `.png`. `--line none` gives the raw reading, for the instrument floor. Each run sets RBW, 10 dB attenuation (`--atten`), spur removal and external gain 0, and the preamp if `--lna on|off` is given; nothing is saved to the tinySA.
+
+`tsa.py` here is a wrapper. The sweep code is `tinysa-ultra/tsa.py` in the [lab-tools](https://github.com/ramb0t/lab-tools) repository, which must be cloned beside this one or pointed to with `LAB_TOOLS`; its README lists what makes a sweep wrong. The wrapper adds this LISN's defaults: `--line plus`, the VDF folder and the `data` folder.
+
+The two floor rows in the table above were read with the tinySA's external gain left at +20 dB, so their absolute levels are 20 dB too low. The level check is a difference between two readings and is unaffected.
 
 `python3 levelcheck.py direct`, then `lisn`, then `analyse` repeats the level check. The CAL output is switched to 1 MHz for the captures. Wire `direct` as CAL → cable → RF. Wire `lisn` as CAL → the same cable → adapter → DUT+, and HF+ → RF, with the LISN unpowered and the supply jacks shorted.
 
